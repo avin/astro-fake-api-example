@@ -1,4 +1,12 @@
 import { defineConfig } from 'astro/config';
+import { vitePlugin as fakeApiVitePlugin } from 'fake-api-middleware';
 
-// https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  vite: {
+    plugins: [
+      fakeApiVitePlugin({
+        responsesFile: './apiDummies/index.ts',
+      }),
+    ],
+  },
+});
